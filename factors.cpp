@@ -1,39 +1,14 @@
 #include <vector>
-#include <cmath>
 
 #include "Python.h"
-
-typedef unsigned long UL;
-typedef std::vector<UL> VU;
-
-VU
-factor(UL n)
-{
-    VU factors;
-
-    UL limit = sqrtl(n);
-    for (UL x = 2;; ++x) {
-        if (x > limit) break;
-
-        while (n % x == 0) {
-            n /= x;
-            limit = sqrtl(n);
-            factors.push_back(x);
-        }
-    }
-    if (n > 1)
-        factors.push_back(n);
-
-    return factors;
-}
+#include "factorization.hpp"
 
 static PyObject *
 py_factor(PyObject *self, PyObject *args)
 {
-    unsigned long n;
+    UL n;
 
     // k -- unsigned long type
-    // K -- unsigned long long type
     if (!PyArg_ParseTuple(args, "k", &n))
         return NULL;
 
@@ -51,21 +26,9 @@ static PyMethodDef FactorsMethods[] = {
     {NULL, NULL, 0, NULL}
 };
 
-// static struct PyModuleDef factorsmodule = {
-//     PyModuleDef_HEAD_INIT,
-//     "factors", // name of a module
-//     "A module for factoring numbers", // a docstring
-//     -1, // Size of per interpreter state or -1
-//     FactorsMethods // method table
-// };
-
-// PyMODINIT_FUNC
-// PyInit_factors(void) {
-//     return PyModule_Create(&factorsmodule);
-// }
-
 PyMODINIT_FUNC
-initfactors(void) {
+initfactors(void)
+{
     (void) Py_InitModule("factors", FactorsMethods);
 }
 
