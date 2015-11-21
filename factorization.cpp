@@ -1,7 +1,6 @@
 #include <cmath>
 #include <vector>
 
-#include "Python.h"
 #include "factorization.hpp"
 
 VU
