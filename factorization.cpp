@@ -8,7 +8,7 @@ factor(UL n)
     VU factors;
 
     UL limit = sqrtl(n);
-    for (UL x = 2;; ++x) {
+    for (UL x = 2;;) {
         if (x > limit) break;
 
         while (n % x == 0) {
@@ -16,6 +16,11 @@ factor(UL n)
             limit = sqrtl(n);
             factors.push_back(x);
         }
+
+        if (x > 2)
+            x += 2;
+        else
+            ++x;
     }
     if (n > 1)
         factors.push_back(n);
