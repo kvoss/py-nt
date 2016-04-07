@@ -8,6 +8,9 @@ test: factors.so
 	python -c 'import factors as f; print f.factor(3322)'
 	python -c 'import factors as f; print f.factor(2345)'
 
+timeit:
+	python -m timeit -s "import factors as f" "f.factor(73726243)"
+
 clean:
 	rm -f factors.so
 
