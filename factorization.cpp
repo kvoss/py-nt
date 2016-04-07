@@ -2,10 +2,10 @@
 
 #include "factorization.hpp"
 
-VU
+VUL
 factor(UL n)
 {
-    VU factors;
+    VUL factors;
 
     UL limit = sqrtl(n);
     for (UL x = 2;;) {

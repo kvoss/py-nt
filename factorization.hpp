@@ -4,9 +4,9 @@
 #include <vector>
 
 typedef unsigned long UL;
-typedef std::vector<UL> VU;
+typedef std::vector<UL> VUL;
 
-VU factor(UL);
+VUL factor(UL);
 
 #endif /* _FACTORIZATION_HPP */
 
