@@ -11,10 +11,12 @@ factor(UL n)
     for (UL x = 2;;) {
         if (x > limit) break;
 
-        while (n % x == 0) {
-            n /= x;
+        if (n % x == 0) {
+            do {
+                n /= x;
+                factors.push_back(x);
+            } while (n % x == 0);
             limit = sqrtl(n);
-            factors.push_back(x);
         }
 
         if (x > 2)
