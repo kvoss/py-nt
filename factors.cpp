@@ -11,7 +11,6 @@ py_factor(PyObject *self, PyObject *args)
         return NULL;
 
     PyObject *ret = PyList_New(0);
-    Py_INCREF(ret);
     VUL fs = factor(n);
     for (VUL::iterator it = fs.begin(); it < fs.end(); it++) {
         PyList_Append(ret, Py_BuildValue("k", *it));
