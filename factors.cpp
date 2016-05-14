@@ -9,11 +9,17 @@ py_factor(PyObject *self, PyObject *args)
     // k -- unsigned long type
     if (!PyArg_ParseTuple(args, "k", &n))
         return NULL;
-
-    PyObject *ret = PyList_New(0);
     VUL fs = factor(n);
-    for (VUL::iterator it = fs.begin(); it < fs.end(); it++) {
-        PyList_Append(ret, Py_BuildValue("k", *it));
+
+    PyObject *ret = PyList_New(fs.size());
+    if (NULL == ret)
+        return NULL;
+
+    PyObject *val;
+    Py_ssize_t idx = 0;
+    for (VUL::iterator it = fs.begin(); it < fs.end(); ++it, ++idx) {
+        val = Py_BuildValue("k", *it);
+        PyList_SetItem(ret, idx, val);
     }
     return ret;
 }
