@@ -15,3 +15,6 @@ For example
     distribution of factorization lengths:  {0: 2, 1: 316, 2: 598, 3: 527, 4: 331, 5: 172, 6: 84, 7: 38, 8: 15, 9: 7, 10: 2, 11: 1}
     ----
 
+factorization by trial-division in C++ with Python interface
+
+A stub for implementing Python interface to C++ modules, and a silly experiment in number theory
